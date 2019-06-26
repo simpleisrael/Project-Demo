@@ -6,6 +6,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class EditRegionComponent {
   @Output() onSave = new EventEmitter();
+  @Output() onReset = new EventEmitter();
   @Input() entity = {};
 
   constructor() {}
@@ -17,5 +18,6 @@ export class EditRegionComponent {
 
   reset() {
     this.entity = {};
+    this.onReset.emit();
   }
 }

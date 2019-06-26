@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'ngx-region',
   templateUrl: './region.component.html',
 })
-export class RegionComponent {
+export class RegionComponent implements OnInit {
   constructor() {
   }
 
@@ -49,20 +49,46 @@ export class RegionComponent {
   cities = [];
   lgas = [];
 
+  filteredStates;
+  filteredCities;
+  filteredLgas;
+
   selectedState = {};
   selectedCity = {};
   selectedLga = {};
 
+  stateKeyword = '';
+  cityKeyword = '';
+  lgaKeyword = '';
+
+  ngOnInit() {
+    this.filteredStates = this.filterImpl(this.states, '');
+    this.filteredCities = this.filterImpl(this.cities, '');
+    this.filteredLgas = this.filterImpl(this.lgas, '');
+  }
+
   onSaveState(event) {
     console.log('Saving/Updating>>>', event);
+  }
+
+  onResetState() {
+    this.selectedState = {};
   }
 
   onSaveCity(event) {
     console.log('Saving/Updating>>>', event);
   }
 
+  onResetCity() {
+    this.selectedCity = {};
+  }
+
   onSaveLga(event) {
     console.log('Saving/Updating>>>', event);
+  }
+
+  onResetLga() {
+    this.selectedLga = {};
   }
 
   loadState(state) {
@@ -78,5 +104,24 @@ export class RegionComponent {
   loadLga(lga) {
     console.log('loading lga');
     this.selectedCity = lga;
+  }
+
+
+  private filterImpl(arrayData, keyword) {
+    if (!keyword || keyword.length < 2) return arrayData;
+    return arrayData.filter(entity => entity['name'].toLowerCase().includes(keyword.toLowerCase()));
+  }
+
+  filterState() {
+    console.log('Filtering State', this.stateKeyword);
+    this.filteredStates = this.filterImpl(this.states, this.stateKeyword);
+  }
+
+  filterCity() {
+    this.filteredCities = this.filterImpl(this.cities, this.cityKeyword);
+  }
+
+  filterLga() {
+    this.filteredLgas = this.filterImpl(this.lgas, this.lgaKeyword);
   }
 }

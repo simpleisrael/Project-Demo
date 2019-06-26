@@ -5,9 +5,13 @@
         <h4>State</h4>
       </nb-card-header>
       <nb-card-body class="card-body">
-        <ngx-edit-region [entity]="selectedState" (onSave)="onSaveState($event)"></ngx-edit-region>
+        <ngx-edit-region [entity]="selectedState" (onSave)="onSaveState($event)" (onReset)="onResetState()"></ngx-edit-region>
         <hr />
-        <ngx-region-thumbnail *ngFor="let state of states" [entity]="state" (onLoad)="loadState(state)"></ngx-region-thumbnail>
+        <div class="input-group">
+          <input type="text" (keyup)="filterState()" nbInput fullWidth placeholder="Filter State" [(ngModel)]="stateKeyword">
+        </div>
+        <hr />
+        <ngx-region-thumbnail *ngFor="let state of filteredStates" [entity]="state" (onLoad)="loadState(state)"></ngx-region-thumbnail>
       </nb-card-body>
     </nb-card>
   </div>
@@ -18,9 +22,13 @@
         <h4>City</h4>
       </nb-card-header>
       <nb-card-body class="card-body">
-        <ngx-edit-region [entity]="selectedCity" (onSave)="onSaveCity($event)"></ngx-edit-region>
+        <ngx-edit-region [entity]="selectedCity" (onSave)="onSaveCity($event)" (onReset)="onResetCity()"></ngx-edit-region>
         <hr />
-        <ngx-region-thumbnail *ngFor="let city of cities" [entity]="city" (onLoad)="loadCity(city)"></ngx-region-thumbnail>
+        <div class="input-group">
+          <input type="text" (keyup)="filterCity()"  nbInput fullWidth placeholder="Filter City" [(ngModel)]="cityKeyword">
+        </div>
+        <hr />
+        <ngx-region-thumbnail *ngFor="let city of filteredCities" [entity]="city" (onLoad)="loadCity(city)"></ngx-region-thumbnail>
       </nb-card-body>
     </nb-card>
   </div>
@@ -31,9 +39,13 @@
         <h4>Lga</h4>
       </nb-card-header>
       <nb-card-body class="card-body">
-        <ngx-edit-region [entity]="selectedLga" (onSave)="onSaveLga($event)"></ngx-edit-region>
+        <ngx-edit-region [entity]="selectedLga" (onSave)="onSaveLga($event)" (onReset)="onResetLga()"></ngx-edit-region>
         <hr />
-        <ngx-region-thumbnail *ngFor="let lga of lgas" [entity]="lga" (onLoad)="loadLga(lga)"></ngx-region-thumbnail>
+        <div class="input-group">
+          <input type="text" (keyup)="filterLga()"  nbInput fullWidth placeholder="Filter Lga" [(ngModel)]="lgaKeyword">
+        </div>
+        <hr />
+        <ngx-region-thumbnail *ngFor="let lga of filteredLgas" [entity]="lga" (onLoad)="loadLga(lga)"></ngx-region-thumbnail>
       </nb-card-body>
     </nb-card>
   </div>
