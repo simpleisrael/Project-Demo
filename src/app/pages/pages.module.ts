@@ -9,12 +9,14 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import {BaseComponent} from './components/base.component';
 import {RegionComponent} from './components/address/region/region.component';
 import {EditRegionComponent} from './components/address/edit-region/edit-region.component';
+import {RegionThumbnailComponent} from './components/address/region-thumbnail/region-thumbnail.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
   BaseComponent,
   RegionComponent,
   EditRegionComponent,
+  RegionThumbnailComponent,
 ];
 
 @NgModule({

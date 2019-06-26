@@ -49,19 +49,34 @@ export class RegionComponent {
   cities = [];
   lgas = [];
 
-  selectedState;
-  selectedCity;
-  selectedLga;
+  selectedState = {};
+  selectedCity = {};
+  selectedLga = {};
 
   onSaveState(event) {
-    console.log(event);
+    console.log('Saving/Updating>>>', event);
   }
 
   onSaveCity(event) {
-    console.log(event);
+    console.log('Saving/Updating>>>', event);
   }
 
   onSaveLga(event) {
-    console.log(event);
+    console.log('Saving/Updating>>>', event);
+  }
+
+  loadState(state) {
+    console.log('loading state');
+    this.selectedState = state;
+  }
+
+  loadCity(city) {
+    console.log('loading city');
+    this.selectedCity = city;
+  }
+
+  loadLga(lga) {
+    console.log('loading lga');
+    this.selectedCity = lga;
   }
 }

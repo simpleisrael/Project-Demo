@@ -5,7 +5,9 @@
         <h4>State</h4>
       </nb-card-header>
       <nb-card-body class="card-body">
-        <ngx-edit-region (onSave)="onSaveState($event)"></ngx-edit-region>
+        <ngx-edit-region [entity]="selectedState" (onSave)="onSaveState($event)"></ngx-edit-region>
+        <hr />
+        <ngx-region-thumbnail *ngFor="let state of states" [entity]="state" (onLoad)="loadState(state)"></ngx-region-thumbnail>
       </nb-card-body>
     </nb-card>
   </div>
@@ -16,8 +18,9 @@
         <h4>City</h4>
       </nb-card-header>
       <nb-card-body class="card-body">
-        <ngx-edit-region (onSave)="onSaveCity($event)"></ngx-edit-region>
-
+        <ngx-edit-region [entity]="selectedCity" (onSave)="onSaveCity($event)"></ngx-edit-region>
+        <hr />
+        <ngx-region-thumbnail *ngFor="let city of cities" [entity]="city" (onLoad)="loadCity(city)"></ngx-region-thumbnail>
       </nb-card-body>
     </nb-card>
   </div>
@@ -28,8 +31,9 @@
         <h4>Lga</h4>
       </nb-card-header>
       <nb-card-body class="card-body">
-        <ngx-edit-region (onSave)="onSaveLga($event)"></ngx-edit-region>
-
+        <ngx-edit-region [entity]="selectedLga" (onSave)="onSaveLga($event)"></ngx-edit-region>
+        <hr />
+        <ngx-region-thumbnail *ngFor="let lga of lgas" [entity]="lga" (onLoad)="loadLga(lga)"></ngx-region-thumbnail>
       </nb-card-body>
     </nb-card>
   </div>
