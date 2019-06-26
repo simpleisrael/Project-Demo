@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-4">
+    <nb-card>
+      <nb-card-header>
+        <h4>State</h4>
+      </nb-card-header>
+      <nb-card-body class="card-body">
+        <ngx-edit-region (onSave)="onSaveState($event)"></ngx-edit-region>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-md-4">
+    <nb-card>
+      <nb-card-header>
+        <h4>City</h4>
+      </nb-card-header>
+      <nb-card-body class="card-body">
+        <ngx-edit-region (onSave)="onSaveCity($event)"></ngx-edit-region>
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-md-4">
+    <nb-card>
+      <nb-card-header>
+        <h4>Lga</h4>
+      </nb-card-header>
+      <nb-card-body class="card-body">
+        <ngx-edit-region (onSave)="onSaveLga($event)"></ngx-edit-region>
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+
